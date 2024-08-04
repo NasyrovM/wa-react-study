@@ -3,6 +3,9 @@ import { Layout } from '../shared/ui/layout';
 import { ErrorPage } from '../pages/error';
 import { DashboardPage } from '../pages/dashboard';
 import { LoginPage } from '../pages/login';
+import { store } from './store';
+import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,7 @@ const router = createBrowserRouter([
   }
 ]);
 
+const queryClient = new QueryClient();
 
 export function App()
 {
@@ -33,7 +37,11 @@ export function App()
     <div className="App">
       <header className="App-header">
       </header>
-      <RouterProvider router={router}/>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <RouterProvider router={router}/>
+        </Provider>
+      </QueryClientProvider>
     </div>
   );
 }

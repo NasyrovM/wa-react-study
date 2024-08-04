@@ -9,8 +9,13 @@ export type GetProductListParams = {
     skip?: number;
 }
 
+export type ProductResponse =
+{
+    products : Product[]
+}
+
 export const getProductList = (
     params?:GetProductListParams
-):AxiosPromise<Product[]> => {
+):AxiosPromise<ProductResponse> => {
     return apiInstance.get(BASE_URL, { params })
 };

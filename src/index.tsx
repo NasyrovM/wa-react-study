@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { App } from './app';
-import { ErrorPage } from './pages/error';
-import { DashboardPage } from './pages/dashboard';
-import { LoginPage } from './pages/login';
+import { Provider } from 'react-redux';
+import { store } from 'app/store';
 
 
 const root = ReactDOM.createRoot(
